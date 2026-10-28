@@ -6332,6 +6332,11 @@ static void ImGui::RenderDimmedBackgroundBehindWindow(ImGuiWindow* window, ImU32
         if (draw_list->CmdBuffer.Size == 0)
             draw_list->AddDrawCmd();
         draw_list->PushClipRect(viewport_rect.Min - ImVec2(1, 1), viewport_rect.Max + ImVec2(1, 1), false); // FIXME: Need to strictly ensure ImDrawCmd are not merged (ElemCount==6 checks below will verify that)
+<<<<<<< HEAD
+=======
+        draw_list->PrimReserve(6, 4);
+        draw_list->PrimRect(viewport_rect.Min, viewport_rect.Max, col);
+>>>>>>> 2fb554b1c (Modals: fixed an assert displaying a modal in an environment where io.DisplayFramebufferScale is not an integer. (#9598))
         ImDrawCmd cmd = draw_list->CmdBuffer.back();
         IM_ASSERT(cmd.ElemCount == 0);
         draw_list->AddRectFilled(viewport_rect.Min, viewport_rect.Max, col);
